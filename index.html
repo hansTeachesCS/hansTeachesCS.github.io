@@ -4,7 +4,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>AP CSA</title>
+  <title>Applied Processing</title>
+  <link rel="icon" type="image/png" href="favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
   <style>
     body {
@@ -69,6 +70,60 @@
       margin-bottom: 0;
     }
 
+    .units-section {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 80px 80px;
+    }
+
+    .unit-btn {
+      display: block;
+      font-family: 'Press Start 2P', monospace;
+      font-size: 9px;
+      background: #000;
+      color: #ff2222;
+      border: 2px solid #550000;
+      padding: 18px 10px;
+      cursor: pointer;
+      line-height: 1.6;
+      transition: background 0.15s, border-color 0.15s, color 0.15s;
+      text-align: center;
+      outline: none;
+      text-decoration: none;
+    }
+
+    .unit-btn .label-hover {
+      display: none;
+    }
+
+    .unit-btn:not(.no-hover):hover {
+      background: #222;
+      border-color: #666;
+      color: #ccc;
+    }
+
+    .unit-btn:not(.no-hover):hover .label-default {
+      display: none;
+    }
+
+    .unit-btn:not(.no-hover):hover .label-hover {
+      display: inline;
+    }
+
+    .unit-btn.no-hover {
+      cursor: default;
+    }
+
+    @media (max-width: 768px) {
+      .units-section {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 0 24px 60px;
+      }
+    }
+
     @media (max-width: 768px) {
       .header-split {
         flex-direction: column;
@@ -100,6 +155,49 @@
       <p>This course reimagines the traditional AP Computer Science A curriculum through the lens of Processing, a creative coding environment built on Java.</p>
       <p>Rather than learning programming through abstract exercises, students build visual art, animations, and interactive programs, applying every core AP CSA concept in a hands-on, creative context.</p>
     </div>
+  </div>
+
+  <div class="units-section">
+    <a class="unit-btn" href="unit1.html">
+      <span class="label-default">Unit 1</span>
+      <span class="label-hover">Primitives and<br>Basic Methods</span>
+    </a>
+    <a class="unit-btn" href="unit2.html">
+      <span class="label-default">Unit 2</span>
+      <span class="label-hover">Object Basics</span>
+    </a>
+    <a class="unit-btn" href="unit3.html">
+      <span class="label-default">Unit 3</span>
+      <span class="label-hover">Boolean Expressions<br>and If Statements</span>
+    </a>
+    <a class="unit-btn" href="unit4.html">
+      <span class="label-default">Unit 4</span>
+      <span class="label-hover">Iteration</span>
+    </a>
+    <a class="unit-btn" href="unit5.html">
+      <span class="label-default">Unit 5</span>
+      <span class="label-hover">Arrays</span>
+    </a>
+    <a class="unit-btn" href="unit6.html">
+      <span class="label-default">Unit 6</span>
+      <span class="label-hover">Writing Classes</span>
+    </a>
+    <a class="unit-btn" href="unit7.html">
+      <span class="label-default">Unit 7</span>
+      <span class="label-hover">ArrayLists</span>
+    </a>
+    <a class="unit-btn" href="unit8.html">
+      <span class="label-default">Unit 8</span>
+      <span class="label-hover">Reading Files</span>
+    </a>
+    <a class="unit-btn" href="unit9.html">
+      <span class="label-default">Unit 9</span>
+      <span class="label-hover">2D Arrays</span>
+    </a>
+    <a class="unit-btn" href="unit10.html">
+      <span class="label-default">Unit 10</span>
+      <span class="label-hover">Recursion</span>
+    </a>
   </div>
 </body>
 

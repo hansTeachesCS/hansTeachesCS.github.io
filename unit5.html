@@ -13,9 +13,13 @@
       background-color: #000;
       color: #fff;
     }
+
+    /* ── Header ── */
     .unit-header {
       text-align: center;
-      padding: 60px 20px 0;
+      padding: 60px 40px 0;
+      max-width: 1200px;
+      margin: 0 auto;
     }
     .unit-number {
       font-family: 'Press Start 2P', monospace;
@@ -24,26 +28,111 @@
       text-shadow:
         3px 3px 0px #0D2E6E,
         6px 6px 0px #071B42;
-      margin-bottom: 40px;
+      margin-bottom: 24px;
     }
     .unit-title {
       font-family: 'Press Start 2P', monospace;
       font-size: clamp(10px, 1.6vw, 18px);
-      color: #888;
+      color: #1E6BA8;
       text-shadow:
-        2px 2px 0px #2a2a2a,
-        4px 4px 0px #111;
+        2px 2px 0px #0D2E6E,
+        4px 4px 0px #071B42;
       line-height: 1.8;
     }
     .unit-description {
       font-family: 'VT323', monospace;
-      font-size: clamp(16px, 2vw, 22px);
+      font-size: clamp(18px, 2vw, 24px);
       color: #aaa;
-      margin: 20px auto 0;
-      line-height: 1.3;
+      margin: 28px auto 0;
+      line-height: 1.4;
       text-align: center;
+      max-width: 860px;
+    }
+
+    /* ── Shared content wrapper ── */
+    .content {
+      max-width: 1200px;
+      margin: 0 auto;
       padding: 0 40px;
     }
+
+    .section {
+      margin-top: 60px;
+    }
+
+    .section-label {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 9px;
+      color: #29ADE0;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    /* ── Activity cards ── */
+    .activities-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+    }
+    .activity-card {
+      background: #050810;
+      border: 1px solid #0D2E6E;
+      padding: 20px 16px;
+      text-align: center;
+    }
+    .activity-number {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 8px;
+      color: #29ADE0;
+      margin-bottom: 14px;
+    }
+    .activity-title {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 8px;
+      color: #1E6BA8;
+      line-height: 1.9;
+      margin-bottom: 12px;
+    }
+    .activity-desc {
+      font-family: 'VT323', monospace;
+      font-size: 17px;
+      color: #666;
+      line-height: 1.35;
+    }
+
+    /* ── Student work gallery ── */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .gallery-slot {
+      aspect-ratio: 730 / 748;
+      background: #050810;
+      border: 1px dashed #0D2E6E;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .gallery-slot img,
+    .gallery-slot video {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+    .gallery-placeholder {
+      font-family: 'VT323', monospace;
+      font-size: 14px;
+      color: #1a2a3a;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    /* ── Back link ── */
     .back-link {
       display: block;
       font-family: 'Press Start 2P', monospace;
@@ -52,23 +141,98 @@
       text-decoration: none;
       text-align: center;
       margin-top: 80px;
+      padding-bottom: 60px;
     }
     .back-link:hover {
       color: #29ADE0;
     }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .activities-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    @media (max-width: 600px) {
+      .activities-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .content {
+        padding: 0 20px;
+      }
+      .unit-header {
+        padding: 60px 20px 0;
+      }
+    }
   </style>
 </head>
 <body>
+
   <div class="unit-header">
     <div class="unit-number">Unit 5</div>
     <div class="unit-title">Arrays</div>
     <div class="unit-description">
-      Students get their first look at arrays through an Advent of Code problem, loading a long list of strings from a file and writing methods to classify each one based on vowel counts, double letters, and forbidden substrings.
-      Students then envision and build their own visual representation of the results in Processing, serving as a natural introduction to the College Board's data analysis unit on reading files and working with real datasets.
-      AP Free Response practice and CodingBat problems run alongside, building fluency with array traversal, accumulation, and multi-variable tracking algorithms.
-      The unit closes with a New Year's Eve design challenge where students use arrays to manage collections of animated elements on screen.
+      Students get their first look at arrays through an Advent of Code problem, reading a long list of strings from a file and classifying each one against multiple criteria before building a custom visualization. AP Free Response practice and CodingBat problems build array traversal fluency, and the unit closes with a New Year's Eve confetti challenge that previews the need for Writing Classes.
     </div>
   </div>
+
+  <div class="content">
+
+    <div class="section">
+      <div class="section-label">Activities</div>
+      <div class="activities-grid">
+
+        <div class="activity-card">
+          <div class="activity-number">01</div>
+          <div class="activity-title">Advent of<br>Code</div>
+          <div class="activity-desc">A file of strings is read into an array using Scanner. Students classify each string as "nice" or "naughty" based on vowel count, consecutive duplicate letters, and forbidden substrings, then visualize the results in Processing.</div>
+        </div>
+
+        <div class="activity-card">
+          <div class="activity-number">02</div>
+          <div class="activity-title">Array Traversal<br>& AP FRQ</div>
+          <div class="activity-desc">For-each loops, traversing 1D arrays to locate and modify elements, and creating new arrays from existing data. AP Free Response practice (2011) sharpens implementation skills against real scoring criteria.</div>
+        </div>
+
+        <div class="activity-card">
+          <div class="activity-number">03</div>
+          <div class="activity-title">CodingBat<br>Array Problems</div>
+          <div class="activity-desc">centeredAverage, shiftLeft, and canBalance — algorithms that require tracking min and max values, swapping elements in place, and applying nested loop thinking to integer arrays.</div>
+        </div>
+
+        <div class="activity-card">
+          <div class="activity-number">04</div>
+          <div class="activity-title">Sound<br>Waveform</div>
+          <div class="activity-desc">Integer arrays represent sound amplitude over time. Students use map() to scale values onto the canvas, then track the longest run of matching values and visualize the algorithm using colored shapes in Processing.</div>
+        </div>
+
+        <div class="activity-card">
+          <div class="activity-number">05</div>
+          <div class="activity-title">NYE Confetti<br>Challenge</div>
+          <div class="activity-desc">Parallel arrays store position, size, speed, and color for animated confetti pieces. Managing five pieces reveals the limits of parallel arrays, setting up the motivation for Writing Classes in the next unit.</div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">Student Work</div>
+      <div class="gallery-grid">
+        <div class="gallery-slot"><span class="gallery-placeholder">student work</span></div>
+        <div class="gallery-slot"><span class="gallery-placeholder">student work</span></div>
+        <div class="gallery-slot"><span class="gallery-placeholder">student work</span></div>
+        <div class="gallery-slot"><span class="gallery-placeholder">student work</span></div>
+        <div class="gallery-slot"><span class="gallery-placeholder">student work</span></div>
+        <div class="gallery-slot"><span class="gallery-placeholder">student work</span></div>
+      </div>
+    </div>
+
+  </div>
+
   <a class="back-link" href="index.html">← back</a>
+
 </body>
 </html>
